@@ -31,7 +31,7 @@ name_1 = "Megan Smith"
 name_2 = "Todd Park"
 ```
 
-1. Can you come up with *two* ways to output just the fragment `"Megan"` from `name_1`?
+1. Can you come up with *two* ways to output just the fragment `"Megan"` from `name_1`? name_1.delete(" Smith")  name_1[0..4] name_1[0,5]
 2. Would either of your techniques from A would work to output `"Todd"` from `name_2`? Why or why not?
 3. Write code that can output the initials of `name_2`.
 ⁃	2.3.0 :018 > def initials
@@ -42,6 +42,10 @@ name_2 = "Todd Park"
 	⁃	2.3.0 :022 > initials
 	⁃	TP
 	⁃	 => nil 
+
+ORRRR just name_2[0]+name_2[5]
+
+
 ## Just Integers
 
 Start with these numbers:
@@ -66,9 +70,10 @@ d = 98
 	⁃	51
 	⁃	 => nil 
 	⁃	
-2. Find the average yourself using paper or a calculator. Is your answer different than you found in A? Why?
+2. Find the average yourself using paper or a calculator. Is your answer different than you found in A? Why? Yes, answer is 51.5 but we use all integers so ruby returned an integer
 3. Say you have the operation `a + b * c / d`. What result do you get out from Ruby? What other outputs can you
-get out by adding one or more pairs of parentheses to the equation?
+get out by adding one or more pairs of parentheses to the equation? 
+- Ruby will follow PEMDAS
 
 ## Strings & Integers
 
@@ -104,33 +109,26 @@ In our family we like to say "Happy" once for every year of your age when we say
 four we'd say "Happy happy happy happy birthday!" Note the capitalization.
 
 Say you have an `age` variable that holds the person's age. Write code to output the appropriate greeting.
-*is there a cleaner way to do this?*
-2.3.0 :054 > age = 4
+2.3.0 :017 >   age = 4
  => 4 
-2.3.0 :055 > "Happy " + ("happy " * (age - 1)) + "birthday!"
- => "Happy happy happy happy birthday!" 
-2.3.0 :056 > 
+2.3.0 :018 > ("happy " * age).capitalize + "birthday"
+ => "Happy happy happy happy birthday" 
+2.3.0 :019 > 
+
 ### String Compression
 
 There's a silly compression algorithm that outputs the first letter, the number of letters in the middle,
 and the last letter. So for the string `"Kalamazoo"` it'd output `"K7o"` or `"Denver"` would be `"D4r"`.
 Can you write code to implement that?
 
-2.3.0 :071 >   def silly_compression
-2.3.0 :072?>   puts "What is your word?"
-2.3.0 :073?>   word = gets.chomp
-2.3.0 :074?>   puts word[0] + word.length.to_s + word[-1]
-2.3.0 :075?>   end
+2.3.0 :019 > def silly_compression
+2.3.0 :020?>   puts "What is your word?"
+2.3.0 :021?>   word = gets.chomp
+2.3.0 :022?>   puts word[0] + word[1...-1].length.to_s + word[-1]
+2.3.0 :023?>   end
  => :silly_compression 
-2.3.0 :076 > ruby silly_compression
-What is your word?
-Hanson
-H6n
-NoMethodError: undefined method `ruby' for main:Object
-	from (irb):76
-	from /Users/Angela/.rvm/rubies/ruby-2.3.0/bin/irb:11:in `<main>'
-2.3.0 :077 > silly_compression
+2.3.0 :024 > silly_compression
 What is your word?
 Abigail
-A7l
+A5l
  => nil 
