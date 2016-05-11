@@ -121,14 +121,14 @@ There's a silly compression algorithm that outputs the first letter, the number 
 and the last letter. So for the string `"Kalamazoo"` it'd output `"K7o"` or `"Denver"` would be `"D4r"`.
 Can you write code to implement that?
 
-2.3.0 :019 > def silly_compression
-2.3.0 :020?>   puts "What is your word?"
-2.3.0 :021?>   word = gets.chomp
-2.3.0 :022?>   puts word[0] + word[1...-1].length.to_s + word[-1]
-2.3.0 :023?>   end
- => :silly_compression 
-2.3.0 :024 > silly_compression
-What is your word?
-Abigail
-A5l
- => nil 
+     2.3.0 :019 > def silly_compression
+    2.3.0 :020?>   puts "What is your word?"
+    2.3.0 :021?>   word = gets.chomp
+    2.3.0 :022?>   puts word[0] + word[1...-1].length.to_s + word[-1]
+    2.3.0 :023?>   end
+     => :silly_compression 
+    2.3.0 :024 > silly_compression
+    What is your word?
+    Abigail
+    A5l
+    => nil 
